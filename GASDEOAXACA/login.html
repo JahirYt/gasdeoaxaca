@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Gas de Oaxaca</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <!-- Navbar principal -->
+    <nav class="navbar">
+        <div class="navbar-container">
+          <!-- Logo -->
+          <div class="navbar-brand">
+            <div class="logo-container">
+              <img src="logoGas.png" alt="Gas de Oaxaca Logo" class="logo-image">
+              <div class="logo-text">
+                <span class="brand-name">GAS DE OAXACA</span>
+                <span class="brand-tagline">Energía Confiable</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Menú principal -->
+          <div class="navbar-menu" id="navbarMenu">
+            <ul class="nav-links">
+              <li class="nav-item"><a href="index.html" class="nav-link">🏠Inicio</a></li>
+              <li class="nav-item dropdown">
+                <a href="#servicios" class="nav-link">⚙️Servicios▾</a>
+                <div class="dropdown-menu">
+                  <a href="#gas-lp" class="dropdown-item">🔥 Gas LP Residencial</a>
+                  <a href="#gas-industrial" class="dropdown-item">🏭 Gas Industrial</a>
+                  <a href="#gas-comercial" class="dropdown-item">🏪 Gas Comercial</a>
+                  <a href="#instalacion" class="dropdown-item">🧰 Instalación y Mantenimiento</a>
+                </div>
+              </li>
+              <li class="nav-item"><a href="productos.html" class="nav-link">🛒 Productos</a></li>
+              <li class="nav-item"><a href="fugas.html" class="nav-link">💲 Fugas</a></li>
+              <li class="nav-item"><a href="contacto.html" class="nav-link">💬 Contacto</a></li>
+            </ul>
+
+            <!-- Botones de acción -->
+            <div class="navbar-actions">
+              <button class="btn-secondary">👤 Iniciar Sesión</button>
+              <button class="btn-primary" onclick="window.location.href='pedidos.html'">🚚 Solicitar Pedido</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    <!-- Hero de página -->
+    <section class="page-hero">
+        <h1>👤 Iniciar Sesión</h1>
+        <p>Accede a tu cuenta para gestionar tus pedidos, historial y beneficios exclusivos</p>
+    </section>
+
+    <!-- Contenido principal -->
+    <section class="login-content">
+        <div class="login-container">
+            <div class="login-card">
+                <!-- Formulario de login -->
+                <div class="login-form-section">
+                    <div class="login-header">
+                        <div class="login-icon">🔐</div>
+                        <h2>Bienvenido de Nuevo</h2>
+                        <p>Ingresa tus credenciales para acceder a tu cuenta</p>
+                    </div>
+
+                    <form id="loginForm" class="login-form">
+                        <div class="form-group">
+                            <label class="form-label" for="email">Correo Electrónico</label>
+                            <div class="input-group">
+                                <input type="email" class="form-input" id="email" name="email" placeholder="ejemplo@correo.com" required>
+                                <div class="input-icon">📧</div>
+                            </div>
+                            <div class="error-message" id="emailError">Ingresa un correo electrónico válido</div>
+                            <div class="validation-rules" id="emailRules">
+                                <div class="rule" id="emailRule1">✓ Contiene @</div>
+                                <div class="rule" id="emailRule2">✓ Tiene dominio</div>
+                                <div class="rule" id="emailRule3">✓ Sin espacios</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="password">Contraseña</label>
+                            <div class="input-group">
+                                <input type="password" class="form-input" id="password" name="password" placeholder="Mínimo 8 caracteres" required>
+                                <button type="button" class="toggle-password" id="togglePassword">👁️</button>
+                            </div>
+                            <div class="error-message" id="passwordError">La contraseña debe cumplir con todos los requisitos</div>
+                            <div class="validation-rules" id="passwordRules">
+                                <div class="rule" id="passwordRule1">✓ Mínimo 8 caracteres</div>
+                                <div class="rule" id="passwordRule2">✓ Una mayúscula</div>
+                                <div class="rule" id="passwordRule3">✓ Un número</div>
+                                <div class="rule" id="passwordRule4">✓ Un carácter especial (@#$%^&*)</div>
+                            </div>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="remember">
+                                <span class="checkmark"></span>
+                                Recordarme
+                            </label>
+                            <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
+                        </div>
+
+                        <button type="submit" class="btn-login" id="submitBtn">
+                            <span class="btn-text">Iniciar Sesión</span>
+                            <div class="loading-spinner"></div>
+                        </button>
+
+                        <div class="divider">
+                            <span>O continúa con</span>
+                        </div>
+
+                        <div class="social-login">
+                            <button type="button" class="btn-social btn-google">
+                                <span class="social-icon">🔍</span>
+                                Google
+                            </button>
+                            <button type="button" class="btn-social btn-facebook">
+                                <span class="social-icon">📘</span>
+                                Facebook
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="signup-link">
+                        <p>¿No tienes cuenta? <a href="#">Regístrate aquí</a></p>
+                    </div>
+                </div>
+
+                <!-- Panel de información -->
+                <div class="login-info-section">
+                    <div class="info-content">
+                        <div class="feature-highlight">
+                            <div class="feature-icon">⭐</div>
+                            <h3>Beneficios Exclusivos</h3>
+                            <p>Accede a precios especiales, descuentos únicos y promociones personalizadas.</p>
+                        </div>
+
+                        <div class="feature-highlight">
+                            <div class="feature-icon">📋</div>
+                            <h3>Gestión Simplificada</h3>
+                            <p>Revisa tu historial de pedidos, programa entregas y administra tus datos.</p>
+                        </div>
+
+                        <div class="feature-highlight">
+                            <div class="feature-icon">🔔</div>
+                            <h3>Notificaciones Inteligentes</h3>
+                            <p>Recibe alertas sobre tu estado de pedidos, ofertas especiales y recordatorios.</p>
+                        </div>
+
+                        <div class="feature-highlight">
+                            <div class="feature-icon">🛡️</div>
+                            <h3>Seguridad Garantizada</h3>
+                            <p>Tus datos protegidos con encriptación de última generación y autenticación segura.</p>
+                        </div>
+
+                        <div class="testimonial">
+                            <div class="testimonial-text">
+                                "La mejor decisión para gestionar mis pedidos de gas. Rápido, seguro y muy conveniente."
+                            </div>
+                            <div class="testimonial-author">
+                                <strong>María González</strong>
+                                <span>Cliente satisfecha hace 2 años</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="derechos">
+        Derechos reservados a gas de Oaxaca
+    </footer>
+
+    <script src="js/login.js"></script>
+</body>
+</html>

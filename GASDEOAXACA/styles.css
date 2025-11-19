@@ -1,0 +1,432 @@
+/*DECLARAMOS NUESTRAS VARIABLES Y AJUSTAMOS VALORES A LA BARRA DE NAVEGACIÓN */
+* { 
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box; 
+}
+html, body { 
+    height: 100%; 
+}
+:root{
+  --primary-blue:#1a3a6b;
+  --primary-dark:#0d1f3d;
+  --primary-light:#3d8fb5;
+  --electric-blue:#4db8e8;
+  --neon-blue:#5ec9f5;
+  --deep-blue:#0a152b;
+
+  --sky-50:#f2fbff;
+  --sky-100:#e6f6ff;
+  --sky-200:#d7f0ff;
+
+  --text:#0b1730;
+  --muted:#2a3b57;
+
+  --white:#fff;
+  --shadow:rgba(0,0,0,.08);
+
+  --xs:.25rem; --sm:.5rem; --md:1rem; --lg:1.5rem; --xl:2rem; --xxl:3rem;
+  --r-sm:.5rem; --r-md:.75rem; --r-lg:1rem; --r-xl:1.25rem;
+
+  --t-fast:.15s ease; --t-base:.3s ease; --t-slow:.5s ease;
+  --z-dropdown:1000; --z-fixed:1030;
+}
+
+body{
+  font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size:16px; 
+  line-height:1.6; 
+  color:var(--text);
+  background: linear-gradient(135deg, #f7fcff 0%, #eaf7ff 100%);
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+
+/* ===== NAVBAR CON ANIMACION DE DEGRADADO EN MOVIMIENTO ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-fixed);
+    background: linear-gradient(270deg,
+      rgba(77,184,232,0.9),
+      rgba(94,201,245,0.9),
+      rgba(77,184,232,0.9),
+      rgba(94,201,245,0.9)
+    );
+    background-size: 400% 400%; /* necesario para el movimiento */
+    animation: navbarGradientMove 10s ease infinite;
+  
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,.06);
+    box-shadow: 0 6px 20px rgba(0,0,0,.08);
+  }
+  
+  /* Animación del degradado */
+  @keyframes navbarGradientMove {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+.navbar.scrolled{ 
+    background: linear-gradient(270deg, rgba(34,126,178,.95), rgba(77,184,232,.95));
+}
+
+.navbar-container{
+  max-width:1200px; 
+  margin:0 auto; 
+  height:74px;
+  display:flex; 
+  align-items:center; 
+  justify-content:space-between; 
+  padding:0 var(--lg); 
+  position:relative;
+}
+
+/* --- FIX: Alineación y no ruptura del nombre --- */
+.logo-container{
+    display:flex;
+    align-items:center;        /* centra verticalmente imagen + texto */
+    gap:.75rem;
+  }
+  
+  .logo-image{
+    width:68px;
+    height:68px;
+    object-fit:contain;
+    display:block;             /* elimina espacio fantasma por inline images */
+  }
+  
+  .logo-text{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;    /* centra verticalmente el bloque de texto */
+    line-height:1.05;
+  }
+  
+  .brand-name{
+    font-weight:800;
+    font-size:1.05rem;
+    color:#03233f;
+    letter-spacing:.5px;
+    white-space:nowrap;        /* evita que “GAS DE OAXACA” se parta en 2 líneas */
+    margin:0;
+  }
+  
+  .brand-tagline{
+    font-size:.7rem;
+    color:#083a63;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-top:2px;
+  }
+
+.logo-container:hover .logo-image{ 
+    transform:scale(1.05); 
+}
+
+.navbar-menu{ 
+    display:flex; 
+    align-items:center; 
+    gap:var(--xl); 
+}
+
+.nav-links{ 
+    list-style:none; 
+    display:flex; 
+    gap:.25rem; 
+}
+
+.nav-link{
+  display:flex; 
+  align-items:center; 
+  gap:.5rem;
+  min-width:136px; 
+  justify-content:center;
+  padding:.6rem .9rem; 
+  text-decoration:none; 
+  border-radius:999px;
+  color:#04233f; 
+  font-weight:600; 
+  font-size:.92rem;
+  transition:all var(--t-base);
+  border:1px solid transparent;
+}
+.nav-link:hover{ background:rgba(255,255,255,.55); border-color:rgba(3,35,63,.08); transform:translateY(-1px); }
+.nav-link.active{ background:#ffffffa6; border-color:rgba(3,35,63,.1); }
+
+.dropdown{ position:relative; }
+.dropdown-menu{
+  position:absolute; top:calc(100% + 10px); left:50%; transform:translateX(-50%);
+  min-width:220px; background:#fff; border:1px solid rgba(0,0,0,.06);
+  border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,.12); padding:.4rem 0;
+  opacity:0; visibility:hidden; transition:all var(--t-base); z-index:var(--z-dropdown);
+}
+.dropdown:hover .dropdown-menu{ opacity:1; visibility:visible; transform:translateX(-50%) translateY(4px); }
+.dropdown-item{
+  display:block; padding:.65rem .9rem; text-decoration:none; color:var(--muted); font-weight:600; font-size:.92rem;
+  border-left:3px solid transparent; transition:all var(--t-fast);
+}
+.dropdown-item:hover{ background:var(--sky-100); color:#03345d; border-left-color:#4db8e8; }
+
+.navbar-actions{
+    display:flex; 
+    gap:.6rem; 
+}
+
+button{
+  border:none; 
+  cursor:pointer;
+  display:flex;
+  align-items:center; 
+  justify-content:center; gap:.5rem;
+  padding:.6rem 2rem;
+  border-radius:12px; 
+  font-weight:700; 
+  font-size:.90rem; 
+  transition:all var(--t-base);
+}
+
+.btn-secondary{ 
+    background:#ffffffb8;
+    border:1px solid rgba(0,0,0,.06);
+    color:#0b3763; 
+}
+
+.btn-secondary:hover{
+    transform:translateY(-1px);
+    background:#fff; 
+}
+
+.btn-primary{
+  background:linear-gradient(135deg, #5ec9f5, #4db8e8);
+  color:#073056;
+  border:1px solid #5ec9f5;
+  box-shadow:0 8px 18px rgba(93,200,245,.35);
+}
+
+.btn-primary:hover{
+    transform:translateY(-1px) scale(1.01);
+}
+
+.mobile-toggle{
+  display:none; flex-direction:column; gap:5px;
+  background:#ffffffa8; padding:.4rem; border:1px solid rgba(0,0,0,.06); border-radius:10px;
+}
+.hamburger{ width:26px; height:3px; background:#0b3a63; border-radius:3px; }
+
+/* Banner emergencia */
+.emergency-banner{
+  display:none; padding:.6rem 1rem; border-top:1px solid rgba(0,0,0,.06); border-bottom:1px solid rgba(0,0,0,.06);
+  background:linear-gradient(90deg, #eaf7ff, #f2fbff);
+}
+.emergency-text strong{ color:#035b8f; }
+
+/* ===== HERO VIDEO ===== */
+.video-hero{ position:relative; width:100%; height:520px; margin-top:74px; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+.video-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:brightness(.65); }
+.video-overlay{ position:absolute; inset:0; background:linear-gradient(to bottom, rgba(7,27,58,.45), rgba(7,27,58,.55)); }
+.video-content{ position:relative; z-index:1; text-align:center; color:#fff; padding:2rem; }
+.video-content h1{
+  font-weight:800; font-size:clamp(1.6rem, 2.5vw + 1rem, 2.6rem);
+  background:linear-gradient(135deg,#ffffff,#dff6ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  text-shadow:0 0 15px rgba(255,255,255,.25);
+}
+.video-content p{ opacity:.95; font-size:clamp(.95rem, .6vw + .7rem, 1.1rem); }
+
+/* ===== PRODUCTS (compacto) ===== */
+.products-section{
+  background: var(--sky-100);
+  padding: var(--xxl) var(--lg);
+  position:relative; overflow:hidden;
+}
+.products-container{ max-width:1200px; margin:0 auto; }
+.section-header{ text-align:center; margin-bottom:var(--xl); }
+.section-title{
+  font-size:clamp(1.4rem, 1.2vw + 1.1rem, 2rem);
+  font-weight:800; color:#03233f; letter-spacing:-.2px;
+}
+.section-subtitle{ font-size:.98rem; color:#26496b; opacity:.9; }
+
+.products-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--lg);
+}
+
+/* Tarjeta más pequeña */
+.product-card{
+  background:#ffffffcc;
+  backdrop-filter: blur(8px);
+  border:1px solid rgba(6, 71, 109, .08);
+  border-radius: var(--r-xl);
+  padding: var(--md);
+  box-shadow: 0 10px 24px rgba(0,0,0,.06);
+  transition: transform var(--t-base), box-shadow var(--t-base), border-color var(--t-base);
+}
+.product-card:hover{ transform:translateY(-6px); box-shadow:0 14px 30px rgba(0,0,0,.08); border-color:rgba(6,71,109,.16); }
+
+.product-badge{
+  position:absolute; top:10px; right:10px;
+  background:linear-gradient(135deg, #5ec9f5, #4db8e8);
+  color:#052846; padding:.28rem .55rem; border-radius:999px;
+  font-size:.68rem; font-weight:800; letter-spacing:.4px; text-transform:uppercase;
+}
+
+.featured{ border-color:#ffd34d66; background:linear-gradient(135deg,#ffffff,#fef9e8); }
+.featured .product-badge{ background:linear-gradient(135deg,#ffd34d,#ff9f43); color:#4a3006; }
+
+.product-image{
+  width:70%;
+  border-radius:14px;
+  overflow:hidden; 
+  display:flex; 
+  align-items:center; 
+  justify-content:center;
+  background:linear-gradient(135deg,#eff9ff,#e6f6ff); border:1px solid rgba(6,71,109,.08); margin-bottom:.85rem;
+}
+.product-image img{ width:100%; height:100%; object-fit:cover; transition: transform var(--t-base); }
+.product-card:hover .product-image img{ transform: scale(1.06); }
+
+/* Tipos y precios más chicos */
+.product-title{ font-size:.95rem; font-weight:800; color:#07294d; margin-bottom:.1rem; }
+.product-weight{ font-size:1.15rem; font-weight:800; color:#04335b; margin-bottom:.45rem; }
+.product-description{ font-size:.9rem; color:#294d6e; line-height:1.5; min-height:42px; margin-bottom:.7rem; }
+
+.product-price{
+  display:flex; align-items:baseline; gap:.45rem; padding:.5rem 0;
+  border-top:1px solid rgba(6,71,109,.08); border-bottom:1px solid rgba(6,71,109,.08);
+  margin-bottom:.75rem;
+}
+.price-amount{ font-size:1.55rem; font-weight:800; color:#072a4e; }
+.price-label{ font-size:.9rem; font-weight:700; color:#274a6a; }
+
+/* Controles */
+.product-quantity{ display:flex; align-items:center; justify-content:center; gap:.6rem; margin-bottom:.75rem; }
+.qty-btn{
+  width:34px; height:34px; border-radius:10px;
+  background:#eaf7ff; border:1px solid rgba(6,71,109,.14);
+  color:#0b3a63; font-weight:800; font-size:1rem;
+}
+.qty-btn:hover{ transform:scale(1.06); background:#fff; }
+.qty-input{
+  width:56px; height:34px; text-align:center; border-radius:10px;
+  border:1px solid rgba(6,71,109,.16); background:#fff; color:#072a4e;
+  font-weight:700; font-size:1rem;
+}
+
+/* Botón comprar compacto */
+.btn-buy{
+  width:100%; padding:.75rem; border-radius:12px; font-size:.95rem; font-weight:800;
+  background:linear-gradient(135deg,#5ec9f5,#4db8e8); border:1px solid #5ec9f5; color:#073056;
+  box-shadow:0 8px 18px rgba(93,200,245,.25);
+}
+.btn-buy:hover{ transform:translateY(-2px); }
+
+/* Footer productos */
+.products-footer{ text-align:center; padding: var(--lg) 0; }
+.delivery-info{ color:#1a3c63; font-weight:700; }
+
+/* ===== HERO INFO ===== */
+.demo-content{ }
+.hero-section{
+  background: linear-gradient(135deg,#e6f6ff 0%, #d7f0ff 60%, #cfeaff 100%);
+  padding: var(--xxl) var(--lg);
+  text-align:center; color:#0b2a4a;
+}
+.hero-section h1{ font-size:clamp(1.4rem, 1.2vw + 1.1rem, 2rem); font-weight:800; margin-bottom:.6rem; color:#0b2a4a; }
+.hero-section p{ max-width:900px; margin:0 auto; color:#214465; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px){
+  .mobile-toggle{ display:flex; }
+  .navbar-menu{
+    position:fixed; top:74px; left:0; right:0; bottom:0;
+    background:linear-gradient(180deg, #eaf7ff, #f7fcff);
+    border-top:1px solid rgba(0,0,0,.06);
+    display:flex; flex-direction:column; gap:1rem; padding:1rem; opacity:0; visibility:hidden;
+    transform:translateY(-10px); transition:all var(--t-base);
+  }
+  .navbar-menu.active{ opacity:1; visibility:visible; transform:translateY(0); }
+  .nav-links{ flex-direction:column; gap:.35rem; }
+  .nav-link{ justify-content:flex-start; width:100%; }
+  .navbar-actions{ flex-direction:column; }
+  .emergency-banner{ display:block; }
+}
+
+@media (max-width: 768px){
+  .video-hero{ height:360px; }
+  .product-image{ height:180px; }
+  .price-amount{ font-size:1.45rem; }
+}
+
+@media (max-width: 480px){
+  .navbar-container{ padding:0 .9rem; }
+  .logo-text{ display:none; }
+  .products-section{ padding: var(--xl) var(--md); }
+  .product-card{ padding:.85rem; }
+  .product-description{ min-height:auto; }
+}
+
+.imagen-information{
+    display: inline-block;
+    text-align: center;
+    justify-content: center;
+    padding: 50px;
+}
+.imagen-container{
+    display: inline-block;
+    width: 30%;
+    margin-right: 40px;
+    padding: 10px;
+}
+.image-information {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+  }
+  
+  /* Hover suave con luz azul */
+.image-information:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 30px rgba(77, 184, 232, 0.6);
+    filter: brightness(1.05);
+}
+
+.more-information{
+    color: black;
+    font-family: montserrat;
+    text-decoration: none;
+}
+
+.image-exigen{
+    width: 10%;
+    position: relative;
+}
+
+.derechos{
+  background-color: gray;
+  padding: 50px;
+  text-align: center;
+  text-size-adjust: inherit;
+}
+
+.imagen-instalaciones {
+  width: 50%;
+  align-items: center; 
+}
+
+.section-maps {
+  display: inline-block;
+  text-align: center;
+  justify-content: center;
+  padding: 50px;
+}

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Gas de Oaxaca</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/productos.css">
+</head>
+
+<body>
+    <!-- Navbar principal -->
+    <nav class="navbar">
+        <div class="navbar-container">
+          <!-- Logo -->
+          <div class="navbar-brand">
+            <div class="logo-container">
+              <img src="logoGas.png" alt="Gas de Oaxaca Logo" class="logo-image">
+              <div class="logo-text">
+                <span class="brand-name">GAS DE OAXACA</span>
+                <span class="brand-tagline">Energía Confiable</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Menú principal -->
+          <div class="navbar-menu" id="navbarMenu">
+            <ul class="nav-links">
+              <li class="nav-item"><a href="index.html" class="nav-link">🏠Inicio</a></li>
+              <li class="nav-item dropdown">
+                <a href="#servicios" class="nav-link">⚙️Servicios▾</a>
+                <div class="dropdown-menu">
+                  <a href="#gas-lp" class="dropdown-item">🔥 Gas LP Residencial</a>
+                  <a href="#gas-industrial" class="dropdown-item">🏭 Gas Industrial</a>
+                  <a href="#gas-comercial" class="dropdown-item">🏪 Gas Comercial</a>
+                  <a href="#instalacion" class="dropdown-item">🧰 Instalación y Mantenimiento</a>
+                </div>
+              </li>
+              <li class="nav-item"><a href="productos.html" class="nav-link active">🛒 Productos</a></li>
+              <li class="nav-item"><a href="#precios" class="nav-link">💲 Fugas</a></li>
+              <li class="nav-item"><a href="#contacto" class="nav-link">💬 Contacto</a></li>
+            </ul>
+
+            <!-- Botones de acción -->
+            <div class="navbar-actions">
+              <button class="btn-secondary">👤 Iniciar Sesión</button>
+              <button class="btn-primary">🚚 Solicitar Pedido</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    <!-- Hero de página -->
+    <section class="page-hero">
+        <h1>Nuestro Catálogo Completo</h1>
+        <p>Descubre todos nuestros productos de gas de alta calidad para tu hogar y negocio</p>
+    </section>
+
+    <!-- Filtros -->
+    <section class="filters-section">
+        <div class="filters-container">
+            <div class="filter-tabs">
+                <button class="filter-tab active">Todos</button>
+                <button class="filter-tab">Tanques</button>
+                <button class="filter-tab">Estufas</button>
+                <button class="filter-tab">Calentadores</button>
+                <button class="filter-tab">Accesorios</button>
+                <button class="filter-tab">Ofertas</button>
+            </div>
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Buscar productos...">
+                <span class="search-icon">🔍</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner de promoción -->
+    <div class="promo-banner">
+        🔥 PROMOCIÓN ESPECIAL: 20% de descuento en tanques de 20kg + envío GRATIS 🚚
+    </div>
+
+    <!-- Sección de Productos Expandida -->
+    <section class="products-expanded">
+        <div class="products-expanded-grid">
+            <!-- Tanque 10kg Expandido -->
+            <div class="product-card-expanded">
+                <div class="product-badge">Básico</div>
+                <div class="product-image">
+                    <img src="imagenes/gasDe10kg.png" alt="Tanque de Gas 10kg">
+                </div>
+                <div class="product-info">
+                    <div class="rating-stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star empty">☆</span>
+                    </div>
+                    <h3 class="product-title">Tanque de Gas LP</h3>
+                    <p class="product-weight">10 kg</p>
+                    <p class="product-description">Ideal para departamentos pequeños, uso doméstico ligero y fin de semana</p>
+
+                    <ul class="features-list">
+                        <li>Capacidad: 10 kilogramos</li>
+                        <li>Peso neto: 18 kg aprox</li>
+                        <li>Dimensiones: 30cm x 50cm</li>
+                        <li>Duración: 2-3 semanas uso normal</li>
+                        <li>Válvula de seguridad integrada</li>
+                    </ul>
+
+                    <div class="product-price">
+                        <span class="price-amount">$350</span>
+                        <span class="price-label">MXN</span>
+                    </div>
+
+                    <div class="product-quantity">
+                        <button class="qty-btn minus" onclick="updateQuantity(this, -1)">-</button>
+                        <input type="number" class="qty-input" value="1" min="1" max="10">
+                        <button class="qty-btn plus" onclick="updateQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="btn-buy">
+                        <span class="btn-icon">🛒</span>
+                        Agregar al Carrito
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tanque 20kg Expandido -->
+            <div class="product-card-expanded featured">
+                <div class="product-badge featured-badge">Más Vendido</div>
+                <div class="product-image">
+                    <img src="gas20k.jpg" alt="Tanque de Gas 20kg">
+                </div>
+                <div class="product-info">
+                    <div class="rating-stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <h3 class="product-title">Tanque de Gas LP</h3>
+                    <p class="product-weight">20 kg</p>
+                    <p class="product-description">Perfecto para hogares medianos y uso doméstico regular con familia</p>
+
+                    <ul class="features-list">
+                        <li>Capacidad: 20 kilogramos</li>
+                        <li>Peso neto: 35 kg aprox</li>
+                        <li>Dimensiones: 35cm x 65cm</li>
+                        <li>Duración: 1-2 meses uso normal</li>
+                        <li>Doble válvula de seguridad</li>
+                        <li>Manómetro digital incluido</li>
+                    </ul>
+
+                    <div class="product-price">
+                        <span class="price-amount">$550</span>
+                        <span class="price-label">MXN</span>
+                        <small style="color: #27ae60; font-weight: 600;">20% OFF</small>
+                    </div>
+
+                    <div class="product-quantity">
+                        <button class="qty-btn minus" onclick="updateQuantity(this, -1)">-</button>
+                        <input type="number" class="qty-input" value="1" min="1" max="10">
+                        <button class="qty-btn plus" onclick="updateQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="btn-buy">
+                        <span class="btn-icon">🛒</span>
+                        Agregar al Carrito
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tanque 30kg Expandido -->
+            <div class="product-card-expanded">
+                <div class="product-badge">Empresarial</div>
+                <div class="product-image">
+                    <img src="imagenes/gasDe30Kg.png" alt="Tanque de Gas 30kg">
+                </div>
+                <div class="product-info">
+                    <div class="rating-stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star empty">☆</span>
+                    </div>
+                    <h3 class="product-title">Tanque de Gas LP</h3>
+                    <p class="product-weight">30 kg</p>
+                    <p class="product-description">Ideal para hogares grandes, negocios pequeños y uso comercial intensivo</p>
+
+                    <ul class="features-list">
+                        <li>Capacidad: 30 kilogramos</li>
+                        <li>Peso neto: 52 kg aprox</li>
+                        <li>Dimensiones: 40cm x 80cm</li>
+                        <li>Duración: 2-3 meses uso normal</li>
+                        <li>Sistema anti-fugas avanzado</li>
+                        <li>Certificado de seguridad industrial</li>
+                    </ul>
+
+                    <div class="product-price">
+                        <span class="price-amount">$750</span>
+                        <span class="price-label">MXN</span>
+                    </div>
+
+                    <div class="product-quantity">
+                        <button class="qty-btn minus" onclick="updateQuantity(this, -1)">-</button>
+                        <input type="number" class="qty-input" value="1" min="1" max="10">
+                        <button class="qty-btn plus" onclick="updateQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="btn-buy">
+                        <span class="btn-icon">🛒</span>
+                        Agregar al Carrito
+                    </button>
+                </div>
+            </div>
+
+            <!-- Estufa de Gas -->
+            <div class="product-card-expanded">
+                <div class="badge-new">NUEVO</div>
+                <div class="product-image">
+                    <img src="imagenes/estufaGas.png" alt="Estufa de Gas">
+                </div>
+                <div class="product-info">
+                    <div class="rating-stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <h3 class="product-title">Estufa de Gas</h3>
+                    <p class="product-weight">Modelo 4 Quemadores</p>
+                    <p class="product-description">Estufa moderna de alta eficiencia para tu cocina</p>
+
+                    <ul class="features-list">
+                        <li>4 quemadores de alta potencia</li>
+                        <li>Horno eléctrico integrado</li>
+                        <li>Sistema de encendido automático</li>
+                        <li>Control de temperatura preciso</li>
+                        <li>Diseño elegante y moderno</li>
+                        <li>Fácil limpieza y mantenimiento</li>
+                    </ul>
+
+                    <div class="product-price">
+                        <span class="price-amount">$3,500</span>
+                        <span class="price-label">MXN</span>
+                    </div>
+
+                    <div class="product-quantity">
+                        <button class="qty-btn minus" onclick="updateQuantity(this, -1)">-</button>
+                        <input type="number" class="qty-input" value="1" min="1" max="10">
+                        <button class="qty-btn plus" onclick="updateQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="btn-buy">
+                        <span class="btn-icon">🛒</span>
+                        Agregar al Carrito
+                    </button>
+                </div>
+            </div>
+
+            <!-- Calentador de Agua -->
+            <div class="product-card-expanded">
+                <div class="product-image">
+                    <img src="imagenes/calentadorAgua.jpg" alt="Calentador de Agua">
+                </div>
+                <div class="product-info">
+                    <div class="rating-stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star empty">☆</span>
+                    </div>
+                    <h3 class="product-title">Calentador de Agua</h3>
+                    <p class="product-weight">Capacidad 10 Litros</p>
+                    <p class="product-description">Agua caliente instantánea para toda la familia</p>
+
+                    <ul class="features-list">
+                        <li>Capacidad: 10 litros por minuto</li>
+                        <li>Encendido electrónico automático</li>
+                        <li>Ahorro de energía hasta 30%</li>
+                        <li>Sistema anti-explosión</li>
+                        <li>Instalación sencilla</li>
+                        <li>Garantía de 2 años</li>
+                    </ul>
+
+                    <div class="product-price">
+                        <span class="price-amount">$4,200</span>
+                        <span class="price-label">MXN</span>
+                    </div>
+
+                    <div class="product-quantity">
+                        <button class="qty-btn minus" onclick="updateQuantity(this, -1)">-</button>
+                        <input type="number" class="qty-input" value="1" min="1" max="10">
+                        <button class="qty-btn plus" onclick="updateQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="btn-buy">
+                        <span class="btn-icon">🛒</span>
+                        Agregar al Carrito
+                    </button>
+                </div>
+            </div>
+
+            <!-- Kit de Accesorios -->
+            <div class="product-card-expanded">
+                <div class="product-image">
+                    <img src="imagenes/kitSeguridad.jpg" alt="Kit de Accesorios">
+                </div>
+                <div class="product-info">
+                    <div class="rating-stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <h3 class="product-title">Kit de Seguridad</h3>
+                    <p class="product-weight">Completo</p>
+                    <p class="product-description">Todos los accesorios esenciales para tu instalación de gas</p>
+
+                    <ul class="features-list">
+                        <li>Regulador de presión certificado</li>
+                        <li>Manguera de alta resistencia</li>
+                        <li>2 válvulas de seguridad</li>
+                        <li>Cinta de teflón profesional</li>
+                        <li>Detector de fugas de gas</li>
+                        <li>Manual de instalación</li>
+                    </ul>
+
+                    <div class="product-price">
+                        <span class="price-amount">$850</span>
+                        <span class="price-label">MXN</span>
+                    </div>
+
+                    <div class="product-quantity">
+                        <button class="qty-btn minus" onclick="updateQuantity(this, -1)">-</button>
+                        <input type="number" class="qty-input" value="1" min="1" max="10">
+                        <button class="qty-btn plus" onclick="updateQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="btn-buy">
+                        <span class="btn-icon">🛒</span>
+                        Agregar al Carrito
+                    </button>
+                </div>
+            </div>
+
+            <!-- Parrilla de Gas -->
+            <div class="product-card-expanded">
+                <div class="badge-new">NUEVO</div>
+                <div class="product-image">
+                    <img src="imagenes/parrillaGas.jpg" alt="Parrilla de Gas">
+                </div>
+                <div class="product-info">
+                    <div class="rating-stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star empty">☆</span>
+                    </div>
+                    <h3 class="product-title">Parrilla de Gas</h3>
+                    <p class="product-weight">6 Quemadores</p>
+                    <p class="product-description">Parrilla profesional para asados familiares</p>
+
+                    <ul class="features-list">
+                        <li>6 quemadores de acero inoxidable</li>
+                        <li>Área de cocción: 80x50 cm</li>
+                        <li>Ruedas para fácil movilidad</li>
+                        <li>Cubierta protectora incluida</li>
+                        <li>Sistema de encendido piezoeléctrico</li>
+                        <li>Termómetro integrado</li>
+                    </ul>
+
+                    <div class="product-price">
+                        <span class="price-amount">$2,800</span>
+                        <span class="price-label">MXN</span>
+                    </div>
+
+                    <div class="product-quantity">
+                        <button class="qty-btn minus" onclick="updateQuantity(this, -1)">-</button>
+                        <input type="number" class="qty-input" value="1" min="1" max="10">
+                        <button class="qty-btn plus" onclick="updateQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="btn-buy">
+                        <span class="btn-icon">🛒</span>
+                        Agregar al Carrito
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tanque Estacionario -->
+            <div class="product-card-expanded">
+                <div class="product-badge">Premium</div>
+                <div class="product-image">
+                    <img src="imagenes/tanqueEstacionario+.png" alt="Tanque Estacionario">
+                </div>
+                <div class="product-info">
+                    <div class="rating-stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <h3 class="product-title">Tanque Estacionario</h3>
+                    <p class="product-weight">500 Litros</p>
+                    <p class="product-description">Solución permanente para uso industrial y comercial</p>
+
+                    <ul class="features-list">
+                        <li>Capacidad: 500 litros</li>
+                        <li>Instalación subterránea o superficial</li>
+                        <li>Sistema de monitoreo remoto</li>
+                        <li>Mantenimiento preventivo incluido</li>
+                        <li>Certificación international</li>
+                        <li>Vida útil: 20+ años</li>
+                    </ul>
+
+                    <div class="product-price">
+                        <span class="price-amount">$35,000</span>
+                        <span class="price-label">MXN</span>
+                    </div>
+
+                    <div class="product-quantity">
+                        <button class="qty-btn minus" onclick="updateQuantity(this, -1)">-</button>
+                        <input type="number" class="qty-input" value="1" min="1" max="10">
+                        <button class="qty-btn plus" onclick="updateQuantity(this, 1)">+</button>
+                    </div>
+                    <button class="btn-buy">
+                        <span class="btn-icon">🛒</span>
+                        Cotizar Instalación
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="derechos">
+        Derechos reservados a gas de Oaxaca
+    </footer>
+
+    <script src="js/productos.js"></script>
+</body>
+</html>

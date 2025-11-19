@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Pedido - Gas de Oaxaca</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/pedidos.css">
+</head>
+
+<body>
+    <!-- Navbar principal -->
+    <nav class="navbar">
+        <div class="navbar-container">
+          <!-- Logo -->
+          <div class="navbar-brand">
+            <div class="logo-container">
+              <img src="logoGas.png" alt="Gas de Oaxaca Logo" class="logo-image">
+              <div class="logo-text">
+                <span class="brand-name">GAS DE OAXACA</span>
+                <span class="brand-tagline">Energía Confiable</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Menú principal -->
+          <div class="navbar-menu" id="navbarMenu">
+            <ul class="nav-links">
+              <li class="nav-item"><a href="index.html" class="nav-link">🏠Inicio</a></li>
+              <li class="nav-item dropdown">
+                <a href="#servicios" class="nav-link">⚙️Servicios▾</a>
+                <div class="dropdown-menu">
+                  <a href="#gas-lp" class="dropdown-item">🔥 Gas LP Residencial</a>
+                  <a href="#gas-industrial" class="dropdown-item">🏭 Gas Industrial</a>
+                  <a href="#gas-comercial" class="dropdown-item">🏪 Gas Comercial</a>
+                  <a href="#instalacion" class="dropdown-item">🧰 Instalación y Mantenimiento</a>
+                </div>
+              </li>
+              <li class="nav-item"><a href="productos.html" class="nav-link">🛒 Productos</a></li>
+              <li class="nav-item"><a href="fugas.html" class="nav-link">💲 Fugas</a></li>
+              <li class="nav-item"><a href="contacto.html" class="nav-link">💬 Contacto</a></li>
+            </ul>
+
+            <!-- Botones de acción -->
+            <div class="navbar-actions">
+              <button class="btn-secondary" onclick="window.location.href='login.html'">👤 Iniciar Sesión</button>
+              <button class="btn-primary" style="background: linear-gradient(135deg, #27ae60, #2ecc71);">🚚 Crear Pedido</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    <!-- Hero de página -->
+    <section class="page-hero">
+        <h1>Crear Pedido</h1>
+        <p>Realiza tu pedido de gas de forma rápida, segura y sencilla. Delivery en todo Oaxaca.</p>
+    </section>
+
+    <!-- Contenido principal -->
+    <section class="pedidos-content">
+        <div class="content-container">
+
+            <!-- Indicador de pasos -->
+            <div class="step-indicator">
+                <div class="step active" id="step1">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Productos</div>
+                </div>
+                <div class="step" id="step2">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Datos</div>
+                </div>
+                <div class="step" id="step3">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Entrega</div>
+                </div>
+                <div class="step" id="step4">
+                    <div class="step-number">4</div>
+                    <div class="step-label">Pago</div>
+                </div>
+            </div>
+
+            <div class="status-message" id="statusMessage"></div>
+
+            <!-- Grid principal -->
+            <div class="pedido-grid">
+                <!-- Sección principal -->
+                <div class="main-pedido-section">
+                    <!-- Paso 1: Selección de productos -->
+                    <div id="paso1" class="paso-content">
+                        <h2 class="section-title">Selecciona tus Productos</h2>
+                        <p class="section-subtitle">Elige los tanques de gas que necesitas</p>
+
+                        <div class="productos-grid">
+                            <!-- Tanque 10kg -->
+                            <div class="producto-card" onclick="toggleProducto(this, '10kg', 350)">
+                                <div class="producto-badge badge-eco">Ecológico</div>
+                                <div class="producto-header">
+                                    <div>
+                                        <div class="producto-nombre">Tanque de Gas LP</div>
+                                        <div class="producto-capacidad">10 kg</div>
+                                    </div>
+                                    <div class="producto-precio">$350</div>
+                                </div>
+                                <p style="color: #26496b; font-size: 0.9rem; margin: 0.5rem 0;">Ideal para departamentos pequeños y uso doméstico ligero</p>
+                                <div class="cantidad-selector">
+                                    <button class="cantidad-btn" onclick="event.stopPropagation(); cambiarCantidad('10kg', -1)">-</button>
+                                    <input type="number" class="cantidad-input" id="cantidad-10kg" value="0" min="0" max="10" readonly onclick="event.stopPropagation()">
+                                    <button class="cantidad-btn" onclick="event.stopPropagation(); cambiarCantidad('10kg', 1)">+</button>
+                                </div>
+                            </div>
+
+                            <!-- Tanque 20kg -->
+                            <div class="producto-card" onclick="toggleProducto(this, '20kg', 550)">
+                                <div class="producto-badge badge-popular">Más Vendido</div>
+                                <div class="producto-header">
+                                    <div>
+                                        <div class="producto-nombre">Tanque de Gas LP</div>
+                                        <div class="producto-capacidad">20 kg</div>
+                                    </div>
+                                    <div class="producto-precio">$550</div>
+                                </div>
+                                <p style="color: #26496b; font-size: 0.9rem; margin: 0.5rem 0;">Perfecto para hogares medianos y uso regular con familia</p>
+                                <div class="cantidad-selector">
+                                    <button class="cantidad-btn" onclick="event.stopPropagation(); cambiarCantidad('20kg', -1)">-</button>
+                                    <input type="number" class="cantidad-input" id="cantidad-20kg" value="0" min="0" max="10" readonly onclick="event.stopPropagation()">
+                                    <button class="cantidad-btn" onclick="event.stopPropagation(); cambiarCantidad('20kg', 1)">+</button>
+                                </div>
+                            </div>
+
+                            <!-- Tanque 30kg -->
+                            <div class="producto-card" onclick="toggleProducto(this, '30kg', 750)">
+                                <div class="producto-badge">Empresarial</div>
+                                <div class="producto-header">
+                                    <div>
+                                        <div class="producto-nombre">Tanque de Gas LP</div>
+                                        <div class="producto-capacidad">30 kg</div>
+                                    </div>
+                                    <div class="producto-precio">$750</div>
+                                </div>
+                                <p style="color: #26496b; font-size: 0.9rem; margin: 0.5rem 0;">Ideal para hogares grandes, negocios y uso comercial intensivo</p>
+                                <div class="cantidad-selector">
+                                    <button class="cantidad-btn" onclick="event.stopPropagation(); cambiarCantidad('30kg', -1)">-</button>
+                                    <input type="number" class="cantidad-input" id="cantidad-30kg" value="0" min="0" max="10" readonly onclick="event.stopPropagation()">
+                                    <button class="cantidad-btn" onclick="event.stopPropagation(); cambiarCantidad('30kg', 1)">+</button>
+                                </div>
+                            </div>
+
+                            <!-- Estufa de Gas -->
+                            <div class="producto-card" onclick="toggleProducto(this, 'estufa', 3500)">
+                                <div class="producto-badge badge-nuevo">NUEVO</div>
+                                <div class="producto-header">
+                                    <div>
+                                        <div class="producto-nombre">Estufa de Gas</div>
+                                        <div class="producto-capacidad">4 Quemadores</div>
+                                    </div>
+                                    <div class="producto-precio">$3,500</div>
+                                </div>
+                                <p style="color: #26496b; font-size: 0.9rem; margin: 0.5rem 0;">Estufa moderna de alta eficiencia con horno eléctrico integrado</p>
+                                <div class="cantidad-selector">
+                                    <button class="cantidad-btn" onclick="event.stopPropagation(); cambiarCantidad('estufa', -1)">-</button>
+                                    <input type="number" class="cantidad-input" id="cantidad-estufa" value="0" min="0" max="5" readonly onclick="event.stopPropagation()">
+                                    <button class="cantidad-btn" onclick="event.stopPropagation(); cambiarCantidad('estufa', 1)">+</button>
+                                </div>
+                            </div>
+
+                            <!-- Calentador de Agua -->
+                            <div class="producto-card" onclick="toggleProducto(this, 'calentador', 4200)">
+                                <div class="producto-header">
+                                    <div>
+                                        <div class="producto-nombre">Calentador de Agua</div>
+                                        <div class="producto-capacidad">10 Litros/min</div>
+                                    </div>
+                                    <div class="producto-precio">$4,200</div>
+                                </div>
+                                <p style="color: #26496b; font-size: 0.9rem; margin: 0.5rem 0;">Agua caliente instantánea con encendido electrónico automático</p>
+                                <div class="cantidad-selector">
+                                    <button class="cantidad-btn" onclick="event.stopPropagation(); cambiarCantidad('calentador', -1)">-</button>
+                                    <input type="number" class="cantidad-input" id="cantidad-calentador" value="0" min="0" max="5" readonly onclick="event.stopPropagation()">
+                                    <button class="cantidad-btn" onclick="event.stopPropagation(); cambiarCantidad('calentador', 1)">+</button>
+                                </div>
+                            </div>
+
+                            <!-- Kit de Seguridad -->
+                            <div class="producto-card" onclick="toggleProducto(this, 'kit', 850)">
+                                <div class="producto-header">
+                                    <div>
+                                        <div class="producto-nombre">Kit de Seguridad</div>
+                                        <div class="producto-capacidad">Completo</div>
+                                    </div>
+                                    <div class="producto-precio">$850</div>
+                                </div>
+                                <p style="color: #26496b; font-size: 0.9rem; margin: 0.5rem 0;">Todos los accesorios esenciales para tu instalación de gas</p>
+                                <div class="cantidad-selector">
+                                    <button class="cantidad-btn" onclick="event.stopPropagation(); cambiarCantidad('kit', -1)">-</button>
+                                    <input type="number" class="cantidad-input" id="cantidad-kit" value="0" min="0" max="10" readonly onclick="event.stopPropagation()">
+                                    <button class="cantidad-btn" onclick="event.stopPropagation(); cambiarCantidad('kit', 1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Paso 2: Datos del cliente -->
+                    <div id="paso2" class="paso-content" style="display: none;">
+                        <h2 class="section-title">Tus Datos</h2>
+                        <p class="section-subtitle">Información necesaria para tu entrega</p>
+
+                        <div class="datos-section">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="nombre">Nombre Completo *</label>
+                                    <input type="text" id="nombre" class="form-input" placeholder="Tu nombre completo" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="telefono">Teléfono *</label>
+                                    <input type="tel" id="telefono" class="form-input" placeholder="(951) 123-4567" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Correo Electrónico</label>
+                                    <input type="email" id="email" class="form-input" placeholder="correo@ejemplo.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tipo_cliente">Tipo de Cliente</label>
+                                    <select id="tipo_cliente" class="form-select">
+                                        <option value="residencial">Residencial</option>
+                                        <option value="comercial">Comercial</option>
+                                        <option value="industrial">Industrial</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 1rem;">
+                                <label for="direccion">Dirección de Entrega *</label>
+                                <input type="text" id="direccion" class="form-input" placeholder="Calle, número, colonia" required>
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="ciudad">Ciudad *</label>
+                                    <input type="text" id="ciudad" class="form-input" value="Oaxaca" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cp">Código Postal</label>
+                                    <input type="text" id="cp" class="form-input" placeholder="68000">
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 1rem;">
+                                <label for="referencias">Referencias (Opcional)</label>
+                                <textarea id="referencias" class="form-textarea" placeholder="Indicaciones adicionales para encontrar tu domicilio..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Paso 3: Opciones de Entrega -->
+                    <div id="paso3" class="paso-content" style="display: none;">
+                        <h2 class="section-title">Opciones de Entrega</h2>
+                        <p class="section-subtitle">Elige cómo y cuándo quieres recibir tu pedido</p>
+
+                        <h3 style="color: #03233f; margin: 1.5rem 0 1rem;">Tipo de Entrega</h3>
+                        <div class="entrega-options">
+                            <div class="entrega-option selected" onclick="selectEntrega(this, 'standard')">
+                                <div class="entrega-option-title">🚚 Entrega Estándar</div>
+                                <div class="entrega-option-desc">Entrega en 24-48 horas</div>
+                                <div class="entrega-option-precio">Gratis</div>
+                            </div>
+                            <div class="entrega-option" onclick="selectEntrega(this, 'express')">
+                                <div class="entrega-option-title">🏃 Entrega Express</div>
+                                <div class="entrega-option-desc">Entrega en 2-4 horas</div>
+                                <div class="entrega-option-precio">$100</div>
+                            </div>
+                        </div>
+
+                        <h3 style="color: #03233f; margin: 2rem 0 1rem;">Programar Entrega</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="fecha_entrega">Fecha de Entrega</label>
+                                <input type="date" id="fecha_entrega" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="hora_entrega">Hora Preferida</label>
+                                <select id="hora_entrega" class="form-select">
+                                    <option value="cualquiera">Cualquier hora</option>
+                                    <option value="manana">Mañana (8:00 - 12:00)</option>
+                                    <option value="tarde">Tarde (12:00 - 18:00)</option>
+                                    <option value="noche">Noche (18:00 - 20:00)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Paso 4: Método de Pago -->
+                    <div id="paso4" class="paso-content" style="display: none;">
+                        <h2 class="section-title">Método de Pago</h2>
+                        <p class="section-subtitle">Selecciona cómo prefieres pagar</p>
+
+                        <div class="pago-methods">
+                            <div class="pago-method selected" onclick="selectPago(this, 'efectivo')">
+                                <span class="pago-method-icon">💵</span>
+                                <span class="pago-method-name">Efectivo</span>
+                            </div>
+                            <div class="pago-method" onclick="selectPago(this, 'tarjeta')">
+                                <span class="pago-method-icon">💳</span>
+                                <span class="pago-method-name">Tarjeta</span>
+                            </div>
+                            <div class="pago-method" onclick="selectPago(this, 'transferencia')">
+                                <span class="pago-method-icon">🏦</span>
+                                <span class="pago-method-name">Transferencia</span>
+                            </div>
+                            <div class="pago-method" onclick="selectPago(this, 'mp')">
+                                <span class="pago-method-icon">📱</span>
+                                <span class="pago-method-name">Mercado Pago</span>
+                            </div>
+                        </div>
+
+                        <div id="datos-tarjeta" style="display: none; margin-top: 2rem;">
+                            <h3 style="color: #03233f; margin-bottom: 1rem;">Datos de la Tarjeta</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="titular_tarjeta">Titular de la Tarjeta</label>
+                                    <input type="text" id="titular_tarjeta" class="form-input" placeholder="Como aparece en la tarjeta">
+                                </div>
+                                <div class="form-group">
+                                    <label for="numero_tarjeta">Número de Tarjeta</label>
+                                    <input type="text" id="numero_tarjeta" class="form-input" placeholder="1234 5678 9012 3456" maxlength="19">
+                                </div>
+                                <div class="form-group">
+                                    <label for="vencimiento">Vencimiento</label>
+                                    <input type="text" id="vencimiento" class="form-input" placeholder="MM/AA" maxlength="5">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv">CVV</label>
+                                    <input type="text" id="cvv" class="form-input" placeholder="123" maxlength="4">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 2rem; padding: 1rem; background: #f0fff4; border: 1px solid #27ae60; border-radius: var(--r-md);">
+                            <h4 style="color: #27ae60; margin-bottom: 0.5rem;">🔒 Pago Seguro</h4>
+                            <p style="color: #26496b; margin: 0;">Tu información está protegida con encriptación SSL de 256 bits.</p>
+                        </div>
+                    </div>
+
+                    <!-- Botones de navegación -->
+                    <div style="display: flex; justify-content: space-between; margin-top: 2rem; padding-top: 2rem; border-top: 2px solid rgba(6,71,109,.08);">
+                        <button id="btn-anterior" class="btn-secondary" onclick="pasoAnterior()" style="display: none;">
+                            ← Anterior
+                        </button>
+                        <button id="btn-siguiente" class="btn-primary" onclick="pasoSiguiente()">
+                            Siguiente →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Carrito lateral -->
+                <div class="carrito-section">
+                    <div class="carrito-header">
+                        <div class="carrito-titulo">🛒 Tu Carrito</div>
+                        <div class="carrito-count" id="carrito-count">0 productos</div>
+                    </div>
+
+                    <div class="carrito-items" id="carrito-items">
+                        <div class="carrito-vacio">
+                            Tu carrito está vacío<br>
+                            <small>Agrega productos para continuar</small>
+                        </div>
+                    </div>
+
+                    <div class="carrito-resumen" id="carrito-resumen" style="display: none;">
+                        <div class="resumen-item">
+                            <span class="resumen-label">Subtotal:</span>
+                            <span class="resumen-valor" id="subtotal">$0</span>
+                        </div>
+                        <div class="resumen-item">
+                            <span class="resumen-label">Envío:</span>
+                            <span class="resumen-valor" id="envio">Gratis</span>
+                        </div>
+                        <div class="resumen-item" id="descuento-row" style="display: none;">
+                            <span class="resumen-label">Descuento:</span>
+                            <span class="resumen-valor" id="descuento" style="color: #27ae60;">-$0</span>
+                        </div>
+                        <div class="resumen-total">
+                            <span>Total:</span>
+                            <span id="total">$0</span>
+                        </div>
+                    </div>
+
+                    <button class="submit-pedido-btn" id="btn-finalizar" onclick="finalizarPedido()" disabled>
+                        Finalizar Pedido
+                    </button>
+
+                    <div style="margin-top: 1rem; padding: 1rem; background: var(--sky-50); border-radius: var(--r-md); text-align: center;">
+                        <p style="color: #26496b; margin: 0; font-size: 0.9rem;">
+                            📞 ¿Necesitas ayuda?<br>
+                            <strong>(951) 123-4567</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h3 style="color: #03233f; margin-bottom: 0.5rem;">Procesando tu pedido</h3>
+            <p style="color: #26496b; margin: 0;">Por favor espera un momento...</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="derechos">
+        Derechos reservados a gas de Oaxaca
+    </footer>
+
+    <!-- JavaScript externo -->
+    <script src="js/pedidos.js"></script>
+</body>
+</html>

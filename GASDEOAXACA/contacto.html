@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Gas de Oaxaca</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/contacto.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+
+<body>
+    <!-- Navbar principal -->
+    <nav class="navbar">
+        <div class="navbar-container">
+          <!-- Logo -->
+          <div class="navbar-brand">
+            <div class="logo-container">
+              <img src="logoGas.png" alt="Gas de Oaxaca Logo" class="logo-image">
+              <div class="logo-text">
+                <span class="brand-name">GAS DE OAXACA</span>
+                <span class="brand-tagline">Energía Confiable</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Menú principal -->
+          <div class="navbar-menu" id="navbarMenu">
+            <ul class="nav-links">
+              <li class="nav-item"><a href="index.html" class="nav-link">🏠Inicio</a></li>
+              <li class="nav-item dropdown">
+                <a href="#servicios" class="nav-link">⚙️Servicios▾</a>
+                <div class="dropdown-menu">
+                  <a href="#gas-lp" class="dropdown-item">🔥 Gas LP Residencial</a>
+                  <a href="#gas-industrial" class="dropdown-item">🏭 Gas Industrial</a>
+                  <a href="#gas-comercial" class="dropdown-item">🏪 Gas Comercial</a>
+                  <a href="#instalacion" class="dropdown-item">🧰 Instalación y Mantenimiento</a>
+                </div>
+              </li>
+              <li class="nav-item"><a href="productos.html" class="nav-link">🛒 Productos</a></li>
+              <li class="nav-item"><a href="fugas.html" class="nav-link">💲 Fugas</a></li>
+              <li class="nav-item"><a href="contacto.html" class="nav-link active">💬 Contacto</a></li>
+            </ul>
+
+            <!-- Botones de acción -->
+            <div class="navbar-actions">
+              <button class="btn-secondary" onclick="window.location.href='login.html'">👤 Iniciar Sesión</button>
+              <button class="btn-primary">🚚 Solicitar Pedido</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    <!-- Hero de página -->
+    <section class="page-hero">
+        <h1>Contacto</h1>
+        <p>Estamos aquí para ayudarte. Contáctanos por cualquier consulta sobre nuestros productos y servicios.</p>
+    </section>
+
+    <!-- Contenido principal -->
+    <section class="contacto-content">
+        <div class="content-container">
+
+            <!-- Grid de contacto -->
+            <div class="contact-grid">
+                <!-- Formulario de contacto -->
+                <div class="contact-form-section">
+                    <h2 class="section-title">Envíanos un Mensaje</h2>
+                    <p class="section-subtitle">Nos comunicaremos contigo a la brevedad posible</p>
+
+                    <form id="contactForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="nombre">Nombre *</label>
+                                <input type="text" id="nombre" name="nombre" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="apellido">Apellido *</label>
+                                <input type="text" id="apellido" name="apellido" class="form-input" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico *</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="asunto">Asunto *</label>
+                            <select id="asunto" name="asunto" class="form-input" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="cotizacion">Solicitud de Cotización</option>
+                                <option value="soporte">Soporte Técnico</option>
+                                <option value="emergencia">Reporte de Emergencia</option>
+                                <option value="info">Información General</option>
+                                <option value="queja">Queja o Sugerencia</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje *</label>
+                            <textarea id="mensaje" name="mensaje" class="form-textarea" required placeholder="Describe detalladamente tu consulta..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            📧 Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Información de contacto -->
+                <div class="info-section">
+                    <h2 class="section-title">Información de Contacto</h2>
+                    <p class="section-subtitle">Múltiples vías para comunicarte con nosotros</p>
+
+                    <div class="info-card">
+                        <span class="info-icon">📍</span>
+                        <h3 class="info-title">Dirección</h3>
+                        <div class="info-content">
+                            Calle Principal #123<br>
+                            Colonia Centro<br>
+                            Oaxaca, Oax. C.P. 68000<br>
+                            México
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <span class="info-icon">📞</span>
+                        <h3 class="info-title">Teléfonos</h3>
+                        <div class="info-content">
+                            <strong>Oficina:</strong> (951) 123-4567<br>
+                            <strong>WhatsApp:</strong> (951) 987-6543<br>
+                            <strong>Emergencias 24/7:</strong> (951) 242-4738
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <span class="info-icon">✉️</span>
+                        <h3 class="info-title">Correo Electrónico</h3>
+                        <div class="info-content">
+                            <strong>Información:</strong> info@gasdeoaxaca.com<br>
+                            <strong>Ventas:</strong> ventas@gasdeoaxaca.com<br>
+                            <strong>Soporte:</strong> soporte@gasdeoaxaca.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mapa interactivo de México -->
+            <div class="map-section">
+                <div id="mexico-map">
+                    <div class="loading-overlay">
+                        🗺️ Cargando mapa de México...
+                    </div>
+                </div>
+
+                <div class="map-overlay-info">
+                    <h3 style="color: #03233f; margin-bottom: 1rem;">🏢 Gas de Oaxaca</h3>
+                    <p style="color: #26496b; margin-bottom: 0.5rem; font-size: 0.9rem;">
+                        📍 Calle Principal #123<br>
+                        🏙️ Oaxaca, Oaxaca<br>
+                        📞 (951) 123-4567<br>
+                        🕐 Lunes a Sábado: 8:00 - 18:00
+                    </p>
+                    <button onclick="centerOnOaxaca()" style="background: linear-gradient(135deg, #5ec9f5, #4db8e8); color: #073056; border: none; padding: 0.5rem 1rem; border-radius: var(--r-sm); cursor: pointer; width: 100%; margin-top: 0.5rem;">
+                        🎯 Centrar en Oaxaca
+                    </button>
+                </div>
+
+                <div class="map-instructions">
+                    <strong>💡 Instrucciones:</strong><br>
+                    Haz clic en cualquier lugar del mapa para obtener información sobre esa ubicación.
+                </div>
+            </div>
+
+            <!-- Horario de atención -->
+            <div class="info-section">
+                <h2 class="section-title">Horario de Atención</h2>
+                <p class="section-subtitle">Estamos disponibles para atenderte en los siguientes horarios</p>
+
+                <div class="hours-grid">
+                    <div class="day-card">
+                        <div class="day-name">Lunes - Viernes</div>
+                        <div class="day-hours">8:00 AM - 6:00 PM</div>
+                    </div>
+                    <div class="day-card">
+                        <div class="day-name">Sábado</div>
+                        <div class="day-hours">9:00 AM - 2:00 PM</div>
+                    </div>
+                    <div class="day-card">
+                        <div class="day-name">Domingo</div>
+                        <div class="day-hours">Cerrado</div>
+                    </div>
+                    <div class="day-card emergency">
+                        <div class="day-name">🚨 Emergencias</div>
+                        <div class="day-hours">24/7 • Todos los días</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Redes sociales -->
+            <div class="social-section">
+                <h2 class="section-title">Síguenos en Redes Sociales</h2>
+                <p class="section-subtitle">Mantente conectado con nuestras novedades y promociones</p>
+
+                <div class="social-links">
+                    <a href="#" class="social-link" title="Facebook">📘</a>
+                    <a href="#" class="social-link" title="Instagram">📷</a>
+                    <a href="#" class="social-link" title="Twitter">🐦</a>
+                    <a href="#" class="social-link" title="WhatsApp">💬</a>
+                    <a href="#" class="social-link" title="YouTube">📺</a>
+                    <a href="#" class="social-link" title="LinkedIn">💼</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Botón flotante de Chatbot -->
+    <button class="chatbot-float" id="chatbotToggle" title="Chatea con nuestro asistente">
+        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="30" fill="linear-gradient(135deg, #5ec9f5, #4db8e8)"/>
+            <circle cx="30" cy="30" r="30" fill="#4db8e8"/>
+            <path d="M20 25c0-1.1.9-2 2-2h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H26l-4 4v-4H22c-1.1 0-2-.9-2-2V25z" fill="white"/>
+            <circle cx="30" cy="31" r="1" fill="#4db8e8"/>
+            <circle cx="24" cy="31" r="1" fill="#4db8e8"/>
+            <circle cx="36" cy="31" r="1" fill="#4db8e8"/>
+        </svg>
+    </button>
+
+    <!-- Ventana del Chatbot -->
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <div class="chatbot-title">
+                <span class="chatbot-icon">🤖</span>
+                <span>Asistente Virtual</span>
+            </div>
+            <div class="chatbot-status">
+                <span class="status-dot"></span>
+                <span>En línea</span>
+            </div>
+            <button class="chatbot-close" id="chatbotClose">×</button>
+        </div>
+
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="message bot-message">
+                <div class="message-avatar">🤖</div>
+                <div class="message-content">
+                    <p>¡Hola! 👋 Soy el asistente virtual de Gas de Oaxaca.</p>
+                    <p>Estoy aquí para ayudarte con información sobre nuestros productos, servicios, cotizaciones o cualquier duda que tengas.</p>
+                    <p>¿En qué puedo asistirte hoy?</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="chatbot-input-container">
+            <div class="suggestions-container">
+                <button class="suggestion-btn" data-message="¿Qué productos ofrecen?">🔥 Productos</button>
+                <button class="suggestion-btn" data-message="¿Cuáles son sus precios?">💰 Precios</button>
+                <button class="suggestion-btn" data-message="¿Cómo hago un pedido?">📦 Pedidos</button>
+                <button class="suggestion-btn" data-message="¿Atienden emergencias?">🚨 Emergencias</button>
+            </div>
+            <div class="chatbot-input-wrapper">
+                <input type="text" id="chatbotInput" placeholder="Escribe tu mensaje..." maxlength="500">
+                <button id="chatbotSend" class="send-btn">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M2 10l8-8v4c6 0 10 4 10 10 0-2-2-4-6-4v4L2 10z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="typing-indicator" id="typingIndicator" style="display: none;">
+                <span class="typing-dot"></span>
+                <span class="typing-dot"></span>
+                <span class="typing-dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/529512424738?text=Hola%20Gas%20de%20Oaxaca,%20quiero%20más%20información"
+       target="_blank"
+       class="whatsapp-float"
+       title="Contáctanos por WhatsApp">
+        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="30" fill="#25D366"/>
+            <path d="M30.5 15C22.5 15 16 21.5 16 29.5C16 32.4 16.8 35.1 18.2 37.3L16 45L24 42.8C26.2 44.1 28.8 44.9 31.6 44.9C39.6 44.9 46.1 38.4 46.1 30.4C46.1 26.5 44.5 22.9 41.8 20.2C39.1 17.5 35.5 15.9 31.6 15.9L30.5 15Z" fill="white"/>
+            <path d="M23.5 23C23.2 22.3 22.9 22.3 22.6 22.3C22.3 22.3 22 22.3 21.7 22.3C21.4 22.3 20.9 22.4 20.5 22.9C20.1 23.4 19 24.4 19 26.5C19 28.6 20.5 30.6 20.7 30.9C20.9 31.2 23.7 35.7 28.1 37.5C31.8 39 32.6 38.7 33.5 38.6C34.4 38.5 36.1 37.6 36.5 36.6C36.9 35.6 36.9 34.8 36.8 34.6C36.7 34.4 36.4 34.3 36 34.1C35.6 33.9 33.5 32.9 33.1 32.8C32.7 32.6 32.4 32.6 32.1 33C31.8 33.4 31.1 34.3 30.8 34.6C30.5 34.9 30.3 34.9 29.9 34.7C29.5 34.5 28.1 34 26.5 32.6C25.2 31.5 24.3 30.1 24.1 29.7C23.9 29.3 24.1 29.1 24.3 28.9C24.5 28.7 24.7 28.5 24.9 28.3C25.1 28.1 25.2 27.9 25.4 27.6C25.6 27.3 25.5 27.1 25.4 26.9C25.3 26.7 24.5 24.6 24.2 24" fill="white"/>
+        </svg>
+    </a>
+
+    <!-- Footer -->
+    <footer class="derechos">
+        Derechos reservados a gas de Oaxaca
+    </footer>
+
+    <!-- Scripts externos -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+    <script src="js/contacto.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+</html>

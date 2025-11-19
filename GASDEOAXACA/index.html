@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gas de Oaxaca</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+          <!-- Logo -->
+          <div class="navbar-brand">
+            <div class="logo-container">
+              <img src="logoGas.png" alt="Gas de Oaxaca Logo" class="logo-image">
+              <div class="logo-text">
+                <span class="brand-name">GAS DE OAXACA</span>
+                <span class="brand-tagline">Energía Confiable</span>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Menú principal -->
+          <div class="navbar-menu" id="navbarMenu">
+            <ul class="nav-links">
+              <li class="nav-item"><a href="#inicio" class="nav-link active">🏠Inicio</a></li>
+              <li class="nav-item dropdown">
+                <a href="#servicios" class="nav-link">⚙️Servicios▾</a>
+                <div class="dropdown-menu">
+                  <a href="#gas-lp" class="dropdown-item">🔥 Gas LP Residencial</a>
+                  <a href="#gas-industrial" class="dropdown-item">🏭 Gas Industrial</a>
+                  <a href="#gas-comercial" class="dropdown-item">🏪 Gas Comercial</a>
+                  <a href="#instalacion" class="dropdown-item">🧰 Instalación y Mantenimiento</a>
+                </div>
+              </li>
+              <li class="nav-item"><a href="productos.html" class="nav-link">🛒 Productos</a></li>
+              <li class="nav-item"><a href="fugas.html" class="nav-link">💲 Fugas</a></li>
+              <li class="nav-item"><a href="contacto.html" class="nav-link">💬 Contacto</a></li>
+            </ul>
+      
+            <!-- Botones de acción -->
+            <div class="navbar-actions">
+              <button class="btn-secondary" onclick="window.location.href='login.html'">👤 Iniciar Sesión</button>
+              <button class="btn-primary" onclick="window.location.href='pedidos.html'">🚚 Solicitar Pedido</button>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Banner de emergencia -->
+        <div class="emergency-banner">
+          <div class="emergency-content">
+            ⚠️ <span class="emergency-text">Emergencias 24/7: <strong>951-242-4738</strong></span>
+          </div>
+        </div>
+      </nav>
+      
+
+    <!-- Sección del video de fondo -->
+    <section class="video-hero" id="inicio">
+        <video autoplay muted loop playsinline class="video-bg">
+        <source src="videoGas.mp4" type="video/mp4">
+        Tu navegador no soporta videos HTML5.
+        </video>
+        <div class="video-overlay"></div>
+        <div class="video-content">
+        </div>
+    </section>
+
+    <!-- Sección de Productos -->
+    <section class="products-section" id="productos">
+        <div class="products-container">
+            <div class="section-header">
+                <h2 class="section-title">Nuestros Productos</h2>
+                <p class="section-subtitle">Tanques de Gas LP de alta calidad para tu hogar o negocio</p>
+            </div>
+
+            <div class="products-grid">
+                <!-- Tanque 10kg -->
+                <div class="product-card">
+                    <div class="product-badge">Basico</div>
+                    <div class="product-image">
+                        <img src="imagenes/gasDe10kg.png" alt="Tanque de Gas 10kg">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Tanque de Gas LP</h3>
+                        <p class="product-weight">10 kg</p>
+                        <p class="product-description">Ideal para departamentos pequeños y uso doméstico ligero</p>
+                        <div class="product-price">
+                            <span class="price-amount">$350</span>
+                            <span class="price-label">MXN</span>
+                        </div>
+                        <div class="product-quantity">
+                            <button class="qty-btn minus" onclick="updateQuantity(this, -1)">-</button>
+                            <input type="number" class="qty-input" value="1" min="1" max="10">
+                            <button class="qty-btn plus" onclick="updateQuantity(this, 1)">+</button>
+                        </div>
+                        <button class="btn-buy">
+                            <span class="btn-icon">🛒</span>
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tanque 20kg -->
+                <div class="product-card featured">
+                    <div class="product-badge featured-badge">Más Vendido</div>
+                    <div class="product-image">
+                        <img src="gas20k.jpg" alt="Tanque de Gas 20kg">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Tanque de Gas LP</h3>
+                        <p class="product-weight">20 kg</p>
+                        <p class="product-description">Perfecto para hogares medianos y uso doméstico regular</p>
+                        <div class="product-price">
+                            <span class="price-amount">$550</span>
+                            <span class="price-label">MXN</span>
+                        </div>
+                        <div class="product-quantity">
+                            <button class="qty-btn minus" onclick="updateQuantity(this, -1)">-</button>
+                            <input type="number" class="qty-input" value="1" min="1" max="10">
+                            <button class="qty-btn plus" onclick="updateQuantity(this, 1)">+</button>
+                        </div>
+                        <button class="btn-buy">
+                            <span class="btn-icon">🛒</span>
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tanque 30kg -->
+                <div class="product-card">
+                    <div class="product-badge">Empresarial</div>
+                    <div class="product-image">
+                        <img src="imagenes/gasDe30Kg.png" alt="Tanque de Gas 30kg">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Tanque de Gas LP</h3>
+                        <p class="product-weight">30 kg</p>
+                        <p class="product-description">Ideal para hogares grandes, negocios y uso comercial</p>
+                        <div class="product-price">
+                            <span class="price-amount">$750</span>
+                            <span class="price-label">MXN</span>
+                        </div>
+                        <div class="product-quantity">
+                            <button class="qty-btn minus" onclick="updateQuantity(this, -1)">-</button>
+                            <input type="number" class="qty-input" value="1" min="1" max="10">
+                            <button class="qty-btn plus" onclick="updateQuantity(this, 1)">+</button>
+                        </div>
+                        <button class="btn-buy">
+                            <span class="btn-icon">🛒</span>
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="products-footer">
+                <p class="delivery-info">🚚 Entrega rápida a domicilio • 📞 Kilos completos • ✅ Calidad garantizada</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="imagen-information">
+
+        <h1>INFORMACION RELEVANTE</h1>
+
+       <div class="imagen-container">
+            <img class="image-information" src="imagenes/informacionGas..png">
+            <a href="" class="more-information">Mas informacion Aqui</a>
+       </div>
+       
+       <div class="imagen-container">
+            <img class="image-information" src="imagenes/ticketGas.png">
+            <a href="https://gasdeoaxaca.com/index.php/nosotros/nuevo-tickets" class="more-information">Conocelos</a>
+        </div>
+        
+        
+    </section>
+
+    <section class="section-maps">
+        <h1>NUESTRA UBICACIÒN</h1>
+        <p>Nos encontramos en el sur de la capital a 2 grados al noreste</p>
+
+        <img class="imagen-instalaciones" src="instalaciones.jpg">
+    </section>
+
+
+    <section class="demo-content">
+        <div class="hero-section">
+            <h1>NUESTRA HISTORIA GAS DE OAXACA S.A. DE C.V.</h1>
+            <p>Iniciamos operaciones el 19 de febrero de 1968 bajo los principios de contribuir al bienestar de la familia mexicana, con un servicio integral en el uso y manejo de Gas. L.P. logrando la satisfacción total del cliente.
+                En Gas de Oaxaca nuestro objetivo es brindar un servicio de calidad, honestidad y seguridad.
+                Por ello capacitamos a nuestro personal constantemente en todos sus niveles, con la convicción de mejorar los sistemas de atención y servicio al cliente.</p>
+                
+            
+                <img class="image-exigen" src="imagenes/exigaSuTicket.png">
+
+        </div>
+
+        <div class="hero-section">
+            <h1></h1>
+        </div>
+
+    </section>
+
+    <footer class="derechos">
+        Derechos reservados a gas de Oaxaca 
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navbarMenu = document.getElementById('navbarMenu');
+
+        mobileToggle.addEventListener('click', () => {
+            navbarMenu.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
+        });
+
+        // Smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    navbarMenu.classList.remove('active');
+                    mobileToggle.classList.remove('active');
+                }
+            });
+        });
+
+        // Active link on scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                document.querySelector('.navbar').classList.add('scrolled');
+            } else {
+                document.querySelector('.navbar').classList.remove('scrolled');
+            }
+        });
+
+        // Quantity controls
+        function updateQuantity(button, change) {
+            const qtyInput = button.parentElement.querySelector('.qty-input');
+            let currentValue = parseInt(qtyInput.value) || 1;
+            let newValue = currentValue + change;
+
+            // Mantener dentro de límites
+            if (newValue < 1) newValue = 1;
+            if (newValue > 10) newValue = 10;
+
+            qtyInput.value = newValue;
+        }
+
+        // Agregar animación a las tarjetas al hacer scroll
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const productObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease-out';
+            productObserver.observe(card);
+        });
+
+        // Efecto en botones de compra
+        document.querySelectorAll('.btn-buy').forEach(button => {
+            button.addEventListener('click', function() {
+                const card = this.closest('.product-card');
+                const productTitle = card.querySelector('.product-weight').textContent;
+                const quantity = card.querySelector('.qty-input').value;
+
+                // Animación de feedback
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+
+                // Aquí puedes agregar la lógica para agregar al carrito
+                console.log(`Producto agregado: Tanque ${productTitle} - Cantidad: ${quantity}`);
+                alert(`✅ ${quantity} Tanque(s) de ${productTitle} agregado(s) al carrito`);
+            });
+        });
+    </script>
+</body>
+</html>
